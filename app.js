@@ -3,6 +3,7 @@ class Validation {
 		this.criteria = args;
 		this.states = new Set(this.criteria);
 	}
+
 	toggleValidation(name, state = undefined) {
 		this.criteria.forEach((item) => {
 			if (item.name === name) {
@@ -14,6 +15,7 @@ class Validation {
 			}
 		});
 	}
+
 	validate(value) {
 		let errors = new Map();
 		let isValid = true;
@@ -26,10 +28,12 @@ class Validation {
 		return {
 			valid: isValid,
 			errors: errors,
-		}
+		};
 	}
 }
 
+
+/////////////////////////
 let objArr = [
 	{
 		name: 'Number',
@@ -38,17 +42,17 @@ let objArr = [
 
 		},
 		message: value => {
-			return `${value} is not a Number`
+			return `${value} is not a Number`;
 		}
 	},
 	{
 		name: 'String',
 		check: value => {
-			return	typeof value === 'string';
+			return typeof value === 'string';
 
 		},
 		message: value => {
-			return `${value} is not a String`
+			return `${value} is not a String`;
 		}
 	}
 ];
