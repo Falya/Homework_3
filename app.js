@@ -6,10 +6,10 @@ class Validation {
 		// console.log(this.states);
 	}
 
-	toggleValidation(name, state = undefined) {
+	toggleValidation(name, state = null) {
 		this.criteria.forEach((item) => {
 			if (item.name === name) {
-				if (state === undefined) {
+				if (state === null) {
 					this.states.has(item) ? this.states.delete(item) : this.states.add(item);
 				} else {
 					state ? this.states.add(item) : this.states.delete(item);
