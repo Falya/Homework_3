@@ -1,7 +1,9 @@
 class Validation {
+	states = new Set();
 	constructor(args) {
 		this.criteria = args;
-		this.states = new Set(this.criteria);
+		this.states = Array.isArray(this.criteria) ? new Set(this.criteria) : this.states;
+		// console.log(this.states);
 	}
 
 	toggleValidation(name, state = undefined) {
